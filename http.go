@@ -7,7 +7,6 @@ import (
 	"errors"
 	"fmt"
 	"github.com/gogf/gf/util/gvalid"
-	"github.com/julienschmidt/httprouter"
 	"io"
 	"mime/multipart"
 	"net/http"
@@ -31,7 +30,7 @@ func filterFlags(content string) string {
 	return content
 }
 
-func Parse(r *http.Request,p httprouter.Params,obj interface{},rule string,f gvalid.RuleFunc){
+func Parse(r *http.Request,p Params,obj interface{},rule string,f gvalid.RuleFunc){
 	contentType :=filterFlags(r.Header.Get("Content-Type"))
 	if r.Method == http.MethodGet {
 		if strings.Contains(r.URL.String(),"/:"){
