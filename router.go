@@ -130,11 +130,11 @@ type Router struct {
 }
 
 // Make sure the Router conforms with the http.Handler interface
-var _ http.Handler = New()
+var _ http.Handler = NewRouter()
 
 // New returns a new initialized Router.
 // Path auto-correction, including trailing slashes, is enabled by default.
-func New() *Router {
+func NewRouter() *Router {
 	return &Router{
 		RedirectTrailingSlash:  true,
 		RedirectFixedPath:      true,
